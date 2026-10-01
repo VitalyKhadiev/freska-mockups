@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Доставка цветов и клубники в шоколаде по Тобольску | FRESKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 24px 0 16px; }
+  .fact { background: var(--milk); border-radius: var(--r-lg); padding: 24px; }
+  .fact .ti { color: var(--cherry); font-size: 28px; }
+  .fact b { display: block; font: 400 28px/1.1 var(--font-display); margin: 16px 0 4px; }
+  .fact span { font-size: 14px; color: var(--muted); }
+
+  .zones { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; }
+  .zmap { border-radius: var(--r-xl); min-height: 520px; position: relative; overflow: hidden; background: #EDE3DA;
+          background-image: linear-gradient(90deg, rgba(67,39,32,.06) 1px, transparent 1px), linear-gradient(rgba(67,39,32,.06) 1px, transparent 1px); background-size: 48px 48px; }
+  .zmap svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .zmap .hint { position: absolute; right: 16px; bottom: 16px; font-size: 12px; color: var(--muted); background: var(--milk); padding: 6px 10px; border-radius: 8px; }
+  .zlist { padding: 28px; display: grid; gap: 18px; align-content: start; }
+  .check-addr { display: flex; gap: 8px; }
+  .check-addr .btn { padding: 0 20px; }
+  .ztable { width: 100%; border-collapse: collapse; font-size: 15px; }
+  .ztable td { padding: 13px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .ztable td:last-child { text-align: right; font-weight: 500; white-space: nowrap; }
+  .ztable small { display: block; color: var(--muted); font-size: 13px; }
+  .sw { display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 8px; vertical-align: 0; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .rules { display: grid; gap: 14px; }
+  .rule { display: flex; gap: 14px; }
+  .rule .ti { color: var(--cherry); font-size: 24px; flex-shrink: 0; }
+  .rule p { font-size: 15px; color: var(--muted); }
+  .rule b { color: var(--truffle); font-weight: 500; display: block; }
+  .pay { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .pay > div { background: var(--milk); border-radius: var(--r-lg); padding: 22px; display: grid; gap: 8px; }
+  .pay .ti { color: var(--cherry); font-size: 28px; }
+  .pay p { font-size: 14px; color: var(--muted); }
+
+  @media (max-width: 1080px) {
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .zones, .two { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 760px) {
+    .facts { gap: 8px; }
+    .fact { padding: 18px; border-radius: 20px; }
+    .fact b { font-size: 21px; margin-top: 10px; }
+    .fact span { font-size: 12px; }
+    .zmap { min-height: 320px; border-radius: 26px; }
+    .zlist { padding: 20px; }
+    .pay { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-page="delivery">
+
+<main class="wrap">
+  <div class="crumbs"><a href="home.html">Главная</a><span>Доставка и оплата</span></div>
+  <h1 class="h1-page">Доставка и оплата</h1>
+
+  <div class="facts">
+    <div class="fact"><i class="ti ti-clock-hour-4"></i><b>от 1,5 часа</b><span>соберём и привезём</span></div>
+    <div class="fact"><i class="ti ti-gift"></i><b>0 ₽</b><span>доставка при заказе от 5 000 ₽</span></div>
+    <div class="fact"><i class="ti ti-calendar-time"></i><b>10:30–20:00</b><span>ежедневно, интервал — 1 час</span></div>
+    <div class="fact"><i class="ti ti-hourglass"></i><b>до 19:00</b><span>принимаем заказы на сегодня</span></div>
+  </div>
+
+  <!-- Зоны доставки -->
+  <section class="section" style="padding-top: 24px">
+    <div class="section-head"><h2 class="h2-sm">Зоны и стоимость доставки по Тобольску</h2></div>
+    <div class="zones">
+      <div class="zmap">
+        <svg viewBox="0 0 600 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <path d="M190 120 L360 90 L420 190 L380 300 L230 310 L170 220 Z" fill="#65232B" fill-opacity=".22" stroke="#65232B" stroke-width="2"/>
+          <path d="M360 90 L520 130 L540 280 L420 340 L380 300 L420 190 Z" fill="#ECAAB2" fill-opacity=".45" stroke="#C97F89" stroke-width="2"/>
+          <path d="M170 220 L230 310 L380 300 L420 340 L380 450 L150 440 L90 320 Z" fill="#432720" fill-opacity=".14" stroke="#432720" stroke-opacity=".5" stroke-width="2"/>
+          <circle cx="290" cy="200" r="9" fill="#65232B"/><circle cx="270" cy="370" r="9" fill="#65232B"/>
+        </svg>
+        <div class="hint">здесь будет Яндекс Карта с зонами из админки</div>
+      </div>
+      <div class="panel zlist">
+        <div class="field">
+          <label>Узнайте стоимость доставки по адресу</label>
+          <div class="check-addr"><input class="input" placeholder="Улица и дом"><button class="btn btn-primary">Проверить</button></div>
+        </div>
+        <table class="ztable">
+          <tr><td><span class="sw" style="background: rgba(101,35,43,.4)"></span>Нагорная часть<small>микрорайоны 4–10, 15</small></td><td>250 ₽</td></tr>
+          <tr><td><span class="sw" style="background: rgba(236,170,178,.8)"></span>Подгорная часть<small>исторический центр</small></td><td>300 ₽</td></tr>
+          <tr><td><span class="sw" style="background: rgba(67,39,32,.3)"></span>Отдалённые районы<small>Сумкино, Иртышский и др.</small></td><td>450 ₽</td></tr>
+          <tr><td>При заказе от 5 000 ₽<small>в любую зону города</small></td><td style="color: var(--ok)">бесплатно</td></tr>
+        </table>
+        <p class="hint">Цены и названия зон условные — заказчик пришлёт тарифы. На сайте зоны рисуются на карте в админке, а цена считается автоматически по адресу.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Сроки, интервалы, самовывоз -->
+  <section class="two">
+    <div class="card rules">
+      <h2 class="h2-sm">Сроки и интервалы</h2>
+      <div class="rule"><i class="ti ti-flower"></i><p><b>Цветочные букеты — от 30 минут</b>собираем и сразу передаём курьеру</p></div>
+      <div class="rule"><i class="ti ti-cherry"></i><p><b>Клубничные букеты и наборы — 1–1,5 часа</b>крупные заказы — от 2 часов</p></div>
+      <div class="rule"><i class="ti ti-clock"></i><p><b>Интервал доставки — 1 час</b>курьер позвонит получателю за 15 минут</p></div>
+      <div class="rule"><i class="ti ti-calendar"></i><p><b>Заказ заранее — до 30 дней</b>удобно к праздникам и годовщинам</p></div>
+    </div>
+    <div class="card rules">
+      <h2 class="h2-sm">Самовывоз</h2>
+      <div class="rule"><i class="ti ti-map-pin"></i><p><b>Тобольск, ул. Примерная, 1</b>ежедневно 10:30–20:00</p></div>
+      <div class="rule"><i class="ti ti-map-pin"></i><p><b>Тобольск, мкр. Примерный, 2</b>ежедневно 10:30–20:00</p></div>
+      <div class="rule"><i class="ti ti-bell"></i><p><b>Пришлём уведомление, когда заказ будет готов</b>в Telegram, SMS или на почту — как вам удобнее</p></div>
+    </div>
+  </section>
+
+  <!-- Оплата -->
+  <section class="section">
+    <div class="section-head"><h2 class="h2-sm">Оплата</h2></div>
+    <div class="pay">
+      <div><i class="ti ti-qrcode"></i><b>СБП</b><p>Оплата через приложение вашего банка без ввода данных карты.</p></div>
+      <div><i class="ti ti-credit-card"></i><b>Картой онлайн</b><p>Мир, Visa, Mastercard. Электронный чек придёт сразу после оплаты.</p></div>
+      <div><i class="ti ti-message-check"></i><b>После подтверждения</b><p>Менеджер свяжется с вами, оплата переводом или при получении.</p></div>
+    </div>
+  </section>
+
+  <!-- Вопросы -->
+  <section class="section" style="padding-top: 0">
+    <div class="section-head"><h2 class="h2-sm">Частые вопросы</h2></div>
+    <div class="card acc" style="padding-top: 6px; padding-bottom: 6px; border-top: 0">
+      <details><summary>Можно ли изменить время или адрес после оформления?</summary><div class="acc-body">Да, напишите или позвоните нам не позднее чем за 2 часа до интервала доставки.</div></details>
+      <details><summary>Что если получателя не будет дома?</summary><div class="acc-body">Курьер позвонит получателю и вам. Если никто не ответит, вернёт заказ в магазин — повторная доставка оплачивается по тарифу зоны.</div></details>
+      <details><summary>Можно ли сделать доставку анонимной?</summary><div class="acc-body">Да, при оформлении отметьте «Не говорить получателю, от кого подарок».</div></details>
+      <details style="border-bottom: 0"><summary>Как вернуть деньги, если заказ не понравился?</summary><div class="acc-body">Свяжитесь с нами в день доставки и пришлите фото — решим вопрос заменой или возвратом.</div></details>
+    </div>
+  </section>
+</main>
+
+<script src="layout.js"></script>
+</body>
+</html>

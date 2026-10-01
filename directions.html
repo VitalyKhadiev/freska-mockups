@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRESKA — стилевые направления</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Manrope:wght@400;500;600&family=Onest:wght@400;500&family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cherry: #65232B;
+    --blossom: #ECAAB2;
+    --truffle: #432720;
+    --ivory: #F8E5D7;
+    --milk: #FFFAF6;
+    --logo-pink: #F0CCCB;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #eee; color: var(--truffle); }
+  img { display: block; max-width: 100%; }
+  .label {
+    font: 500 13px/1 Manrope, sans-serif; letter-spacing: .12em; text-transform: uppercase;
+    background: var(--truffle); color: var(--milk); padding: 14px 24px;
+  }
+  .photo { position: relative; overflow: hidden; }
+  .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .photo .tag { z-index: 1; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; }
+  @media (max-width: 760px) {
+    .grid3 { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .grid3 > :nth-child(3) { display: none; }
+  }
+
+  /* ---------- A: Кондитерская классика ---------- */
+  .a { background: var(--ivory); font-family: Manrope, sans-serif; padding-bottom: 64px; }
+  .a header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; }
+  .a .logo { font: italic 500 30px/1 'Playfair Display', serif; color: var(--cherry); }
+  .a nav { display: flex; gap: 28px; font-size: 14px; }
+  .a .hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; padding: 40px 0 72px; }
+  .a h1 { font: italic 400 64px/1.05 'Playfair Display', serif; color: var(--cherry); }
+  .a .lead { margin: 20px 0 32px; font-size: 17px; line-height: 1.6; max-width: 440px; }
+  .a .btn { display: inline-block; padding: 16px 30px; border-radius: 999px; font: 600 15px Manrope, sans-serif; background: var(--cherry); color: var(--ivory); margin-right: 10px; }
+  .a .btn.ghost { background: transparent; color: var(--cherry); border: 1.5px solid var(--cherry); }
+  .a .hero .photo { aspect-ratio: 4/5; border-radius: 28px; background: var(--blossom); }
+  .a h2 { font: italic 400 40px/1.1 'Playfair Display', serif; color: var(--cherry); margin-bottom: 28px; }
+  .a .card .photo { aspect-ratio: 1; border-radius: 22px; background: #F2C9C3; }
+  .a .card h3 { font: 500 18px/1.3 'Playfair Display', serif; margin: 14px 0 6px; }
+  .a .card .row { display: flex; justify-content: space-between; align-items: center; }
+  .a .card .price { font: 600 17px Manrope, sans-serif; color: var(--cherry); }
+  .a .card .add { width: 42px; height: 42px; border-radius: 50%; background: var(--cherry); color: var(--ivory); display: grid; place-items: center; font-size: 22px; }
+
+  /* ---------- B: Тихая роскошь ---------- */
+  .b { background: var(--milk); font-family: Onest, sans-serif; padding-bottom: 72px; }
+  .b header { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding: 22px 0; border-bottom: 1px solid #E9D6CB; }
+  .b nav { display: flex; gap: 28px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
+  .b nav.r { justify-content: flex-end; }
+  .b .logo { font: 300 30px/1 'Cormorant Garamond', serif; letter-spacing: .38em; text-transform: uppercase; color: var(--truffle); padding-left: .38em; }
+  .b .hero { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; margin-top: 40px; }
+  .b .hero .photo { aspect-ratio: 4/5; background: var(--ivory); }
+  .b .eyebrow { font-size: 12px; letter-spacing: .24em; text-transform: uppercase; }
+  .b h1 { font: 300 76px/1 'Cormorant Garamond', serif; margin: 14px 0 26px; color: var(--truffle); }
+  .b h1 em { font-style: italic; color: var(--cherry); }
+  .b .lead { font-size: 16px; line-height: 1.7; margin: 0 0 32px; max-width: 400px; }
+  .b .btn { display: inline-block; padding: 17px 34px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; background: var(--truffle); color: var(--milk); margin-right: 8px; }
+  .b .btn.ghost { background: transparent; color: var(--truffle); border: 1px solid var(--truffle); }
+  .b .section-head { display: flex; justify-content: space-between; align-items: baseline; margin: 72px 0 28px; }
+  .b h2 { font: 300 44px/1 'Cormorant Garamond', serif; }
+  .b .more { font-size: 12px; letter-spacing: .18em; text-transform: uppercase; border-bottom: 1px solid; padding-bottom: 3px; }
+  .b .card .photo { aspect-ratio: 3/4; background: #F4E1D8; }
+  .b .card .tag { position: absolute; top: 12px; left: 12px; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; background: var(--milk); padding: 6px 10px; }
+  .b .card h3 { font: 400 22px/1.2 'Cormorant Garamond', serif; margin: 16px 0 6px; }
+  .b .card .price { font-size: 14px; letter-spacing: .06em; }
+
+  /* ---------- C: Розовый бутик ---------- */
+  .c { background: var(--logo-pink); font-family: 'Golos Text', sans-serif; padding-bottom: 64px; }
+  .c header { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; }
+  .c header img { height: 64px; mix-blend-mode: multiply; }
+  .c nav { display: flex; gap: 24px; font-size: 15px; }
+  .c .pill { background: var(--truffle); color: var(--logo-pink); padding: 10px 18px; border-radius: 999px; font-size: 14px; }
+  .c .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 16px 0 56px; }
+  .c .hero .panel { background: var(--milk); border-radius: 32px; padding: 56px 48px; display: flex; flex-direction: column; justify-content: space-between; min-height: 560px; }
+  .c .eyebrow { font: 400 13px 'Tenor Sans', sans-serif; letter-spacing: .3em; text-transform: lowercase; color: var(--cherry); }
+  .c h1 { font: 400 58px/1.08 'Tenor Sans', sans-serif; color: var(--truffle); margin: 20px 0; }
+  .c .lead { font-size: 17px; line-height: 1.6; max-width: 420px; }
+  .c .btns { display: flex; gap: 10px; margin-top: 32px; flex-wrap: wrap; }
+  .c .btn { padding: 17px 28px; border-radius: 18px; font-size: 15px; font-weight: 500; background: var(--cherry); color: var(--milk); }
+  .c .btn.ghost { background: var(--blossom); color: var(--cherry); }
+  .c .hero .photo { border-radius: 32px; background: var(--blossom); min-height: 560px; }
+  .c h2 { font: 400 38px/1.1 'Tenor Sans', sans-serif; margin-bottom: 24px; }
+  .c .card { background: var(--milk); border-radius: 26px; padding: 10px 10px 16px; }
+  .c .card .photo { aspect-ratio: 1; border-radius: 18px; background: var(--ivory); }
+  .c .card .tag { position: absolute; top: 10px; left: 10px; font-size: 12px; background: var(--cherry); color: var(--milk); padding: 5px 10px; border-radius: 999px; }
+  .c .card h3 { font: 500 16px/1.3 'Golos Text', sans-serif; margin: 12px 6px 10px; }
+  .c .card .row { display: flex; justify-content: space-between; align-items: center; padding: 0 6px; }
+  .c .card .price { font-weight: 500; font-size: 17px; }
+  .c .card .add { background: var(--truffle); color: var(--milk); padding: 10px 14px; border-radius: 12px; font-size: 14px; }
+
+  @media (max-width: 760px) {
+    nav { display: none !important; }
+    .a .hero, .b .hero, .c .hero { grid-template-columns: 1fr; gap: 20px; padding-top: 12px; }
+    .a h1 { font-size: 42px; }
+    .a .hero .photo, .b .hero .photo { order: -1; }
+    .a h2, .c h2 { font-size: 30px; }
+    .b header { grid-template-columns: 1fr; justify-items: center; }
+    .b h1 { font-size: 50px; }
+    .b h2 { font-size: 34px; }
+    .c .hero .panel { min-height: 0; padding: 32px 24px; }
+    .c .hero .photo { min-height: 0; aspect-ratio: 4/5; order: -1; }
+    .c h1 { font-size: 38px; }
+    .a .btn, .b .btn, .c .btn { width: 100%; text-align: center; margin: 0 0 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== A ===================== -->
+<div class="label">A · Кондитерская классика — Playfair Display italic + Manrope</div>
+<section class="a">
+  <div class="wrap">
+    <header>
+      <div class="logo">Freska</div>
+      <nav><span>Каталог</span><span>Доставка</span><span>Отзывы</span><span>Контакты</span></nav>
+    </header>
+    <div class="hero">
+      <div>
+        <h1>Подарки, которые хочется запомнить</h1>
+        <p class="lead">Цветы, клубника в шоколаде и десерты ручной работы. Доставка по Тобольску от 1,5 часа.</p>
+        <a class="btn">Перейти в каталог</a><a class="btn ghost">Заказать</a>
+      </div>
+      <div class="photo"><img src="assets/IMG_6784.jpg" alt="Пионы с клубникой в шоколаде" style="object-position: 50% 65%"></div>
+    </div>
+    <h2>Хиты продаж</h2>
+    <div class="grid3">
+      <div class="card"><div class="photo"><img src="assets/IMG_6784.jpg" alt="" style="object-position: 40% 62%"></div><h3>Пионы с клубникой</h3><div class="row"><span class="price">8 900 ₽</span><span class="add">+</span></div></div>
+      <div class="card"><div class="photo"><img src="assets/IMG_6785.jpg" alt="" style="object-position: 50% 55%"></div><h3>101 красная роза</h3><div class="row"><span class="price">24 900 ₽</span><span class="add">+</span></div></div>
+      <div class="card"><div class="photo"><img src="assets/IMG_6786.jpg" alt="" style="object-position: 50% 45%"></div><h3>Букет «Нежность»</h3><div class="row"><span class="price">4 900 ₽</span><span class="add">+</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== B ===================== -->
+<div class="label">B · Тихая роскошь — Cormorant Garamond + Onest</div>
+<section class="b">
+  <div class="wrap">
+    <header>
+      <nav><span>Каталог</span><span>Доставка</span></nav>
+      <div class="logo">Freska</div>
+      <nav class="r"><span>Избранное</span><span>Корзина</span></nav>
+    </header>
+    <div class="hero">
+      <div class="text">
+        <div class="eyebrow">цветы · клубника · десерты</div>
+        <h1>Подарки, которые <em>хочется</em> запомнить</h1>
+        <p class="lead">Собираем вручную и доставляем по Тобольску от 1,5 часа.</p>
+        <a class="btn">Каталог</a><a class="btn ghost">Заказать</a>
+      </div>
+      <div class="photo"><img src="assets/IMG_6785.jpg" alt="Букет красных роз" style="object-position: 50% 60%"></div>
+    </div>
+    <div class="section-head"><h2>Хиты продаж</h2><span class="more">Смотреть все</span></div>
+    <div class="grid3">
+      <div class="card"><div class="photo"><span class="tag">Хит</span><img src="assets/IMG_6786.jpg" alt=""></div><h3>Букет «Нежность»</h3><div class="price">4 900 ₽</div></div>
+      <div class="card"><div class="photo"><img src="assets/IMG_6784.jpg" alt="" style="object-position: 40% 60%"></div><h3>Пионы с клубникой</h3><div class="price">8 900 ₽</div></div>
+      <div class="card"><div class="photo"><span class="tag">Новинка</span><img src="assets/IMG_6785.jpg" alt="" style="object-position: 50% 60%"></div><h3>101 красная роза</h3><div class="price">24 900 ₽</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== C ===================== -->
+<div class="label">C · Розовый бутик — Tenor Sans + Golos Text, логотип как есть</div>
+<section class="c">
+  <div class="wrap">
+    <header>
+      <img src="assets/logo.png" alt="Freska bouquet">
+      <nav><span>Каталог</span><span>Доставка</span><span>Отзывы</span></nav>
+      <span class="pill">Корзина · 2</span>
+    </header>
+    <div class="hero">
+      <div class="panel">
+        <div>
+          <div class="eyebrow">freska bouquet · тобольск</div>
+          <h1>Подарки, которые хочется запомнить</h1>
+          <p class="lead">Цветы, клубника в шоколаде и десерты. Соберём за 1,5 часа и привезём красиво.</p>
+        </div>
+        <div class="btns"><a class="btn">Перейти в каталог</a><a class="btn ghost">Заказать</a></div>
+      </div>
+      <div class="photo"><img src="assets/IMG_6786.jpg" alt="Розовый букет" style="object-position: 50% 45%"></div>
+    </div>
+    <h2>Хиты продаж</h2>
+    <div class="grid3">
+      <div class="card"><div class="photo"><span class="tag">Хит</span><img src="assets/IMG_6784.jpg" alt="" style="object-position: 40% 62%"></div><h3>Пионы с клубникой</h3><div class="row"><span class="price">8 900 ₽</span><span class="add">В корзину</span></div></div>
+      <div class="card"><div class="photo"><img src="assets/IMG_6786.jpg" alt="" style="object-position: 50% 45%"></div><h3>Букет «Нежность»</h3><div class="row"><span class="price">4 900 ₽</span><span class="add">В корзину</span></div></div>
+      <div class="card"><div class="photo"><span class="tag">Новинка</span><img src="assets/IMG_6785.jpg" alt="" style="object-position: 50% 55%"></div><h3>101 красная роза</h3><div class="row"><span class="price">24 900 ₽</span><span class="add">В корзину</span></div></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

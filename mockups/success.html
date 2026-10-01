@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Заказ оформлен | FRESKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .done { max-width: 720px; margin: 32px auto 0; display: grid; gap: 16px; }
+  .hero-ok { text-align: center; padding: 48px 32px; display: grid; gap: 14px; justify-items: center; }
+  .hero-ok .ok { width: 76px; height: 76px; border-radius: 50%; background: var(--pink); color: var(--cherry); display: grid; place-items: center; }
+  .hero-ok .ok .ti { font-size: 38px; }
+  .hero-ok .num { font-size: 15px; color: var(--muted); }
+  .timeline { display: grid; gap: 0; }
+  .tl { display: grid; grid-template-columns: 28px 1fr; gap: 14px; position: relative; padding-bottom: 20px; }
+  .tl:last-child { padding-bottom: 0; }
+  .tl::before { content: ''; position: absolute; left: 13px; top: 28px; bottom: 0; width: 2px; background: var(--line); }
+  .tl:last-child::before { display: none; }
+  .tl .dot { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); background: var(--milk); display: grid; place-items: center; }
+  .tl.done .dot { background: var(--cherry); border-color: var(--cherry); color: var(--milk); }
+  .tl.done .dot .ti { font-size: 16px; }
+  .tl.now .dot { border-color: var(--cherry); }
+  .tl.now .dot::after { content: ''; width: 10px; height: 10px; border-radius: 50%; background: var(--cherry); }
+  .tl b { font-weight: 500; }
+  .tl small { display: block; color: var(--muted); font-size: 13px; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px 24px; font-size: 15px; }
+  .info-grid small { display: block; color: var(--muted); font-size: 13px; }
+  .actions-row { display: flex; gap: 10px; flex-wrap: wrap; }
+  .actions-row .btn { flex: 1; }
+  @media (max-width: 760px) {
+    .done { margin-top: 12px; }
+    .hero-ok { padding: 32px 20px; }
+    .info-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-page="success">
+
+<main class="wrap">
+  <div class="done">
+    <section class="panel hero-ok">
+      <div class="ok"><i class="ti ti-check"></i></div>
+      <h1 class="h1-page">Спасибо, заказ оформлен!</h1>
+      <div class="num">Заказ № 1024 · оплачен по СБП · 15 550 ₽</div>
+      <p class="muted" style="max-width: 460px">Мы отправили подтверждение в Telegram. Флорист уже получил заказ — как только курьер выедет, мы напишем.</p>
+    </section>
+
+    <section class="card" style="display: grid; gap: 22px">
+      <h2 class="h3">Статус заказа</h2>
+      <div class="timeline">
+        <div class="tl done"><div class="dot"><i class="ti ti-check"></i></div><div><b>Оплачен</b><small>сегодня, 13:24</small></div></div>
+        <div class="tl now"><div class="dot"></div><div><b>Собираем</b><small>флорист готовит букет и клубнику</small></div></div>
+        <div class="tl"><div class="dot"></div><div><b>Передан курьеру</b><small>пришлём уведомление</small></div></div>
+        <div class="tl"><div class="dot"></div><div><b>Доставлен</b><small>сегодня, 15:00–16:00</small></div></div>
+      </div>
+    </section>
+
+    <section class="card info-grid">
+      <div><small>Получатель</small>Мария · +7 (900) 000-00-00</div>
+      <div><small>Когда</small>Сегодня, 15:00–16:00</div>
+      <div><small>Адрес</small>Тобольск, 7-й микрорайон, 35, кв. 12</div>
+      <div><small>Открытка</small>«С днём рождения, мама! Люблю тебя»</div>
+    </section>
+
+    <div class="actions-row">
+      <a class="btn btn-primary" href="account.html">Отслеживать в личном кабинете</a>
+      <a class="btn btn-line" href="catalog.html">Вернуться в каталог</a>
+    </div>
+    <p class="muted small" style="text-align: center">Вопрос по заказу? Позвоните <a href="tel:+70000000000" style="color: var(--cherry)">+7 (000) 000-00-00</a> или напишите в <a href="#" style="color: var(--cherry)">Telegram</a></p>
+  </div>
+</main>
+
+<script src="layout.js"></script>
+</body>
+</html>

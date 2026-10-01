@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Личный кабинет | FRESKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .acc-layout { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 24px; align-items: start; }
+  .menu { padding: 12px; display: grid; gap: 2px; position: sticky; top: 100px; }
+  .menu .me { padding: 14px 14px 18px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+  .menu .me small { display: block; color: var(--muted); font-size: 13px; }
+  .menu button { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 14px; text-align: left; font-size: 15px; }
+  .menu button:hover { background: var(--pink); }
+  .menu button.active { background: var(--pink); color: var(--cherry); font-weight: 500; }
+  .menu button .count { margin-left: auto; font-size: 12px; color: var(--muted); }
+  .tab { display: none; gap: 16px; }
+  .tab.active { display: grid; }
+
+  .order { display: grid; gap: 16px; }
+  .order .head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; }
+  .order .head small { display: block; color: var(--muted); font-size: 13px; }
+  .status { font-size: 13px; font-weight: 500; padding: 6px 12px; border-radius: 999px; background: var(--pink); color: var(--cherry); white-space: nowrap; }
+  .status.ok { background: #E3EFE5; color: var(--ok); }
+  .track { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .track i { height: 5px; border-radius: 3px; background: var(--pink); display: block; }
+  .track i.on { background: var(--cherry); }
+  .track-labels { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; font-size: 11px; color: var(--muted); margin-top: -8px; }
+  .track-labels .on { color: var(--cherry); font-weight: 500; }
+  .thumbs { display: flex; gap: 8px; }
+  .thumbs .photo { width: 64px; aspect-ratio: 4/5; border-radius: 10px; }
+  .order .foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 14px; border-top: 1px solid var(--line); }
+  .order .foot .btns { display: flex; gap: 8px; }
+
+  .stars-input { display: flex; gap: 6px; color: var(--cherry); }
+  .stars-input .ti { font-size: 30px; cursor: pointer; }
+  .upload { display: flex; gap: 8px; flex-wrap: wrap; }
+  .upload .add { width: 84px; height: 84px; border-radius: 14px; border: 1.5px dashed var(--pink-deep); display: grid; place-items: center; color: var(--cherry); font-size: 12px; text-align: center; cursor: pointer; }
+  .upload .add .ti { font-size: 24px; }
+  .upload img { width: 84px; height: 84px; border-radius: 14px; object-fit: cover; }
+
+  .notify { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .layout-products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+  @media (max-width: 1080px) {
+    .acc-layout { grid-template-columns: 1fr; }
+    .menu { position: static; grid-auto-flow: column; overflow-x: auto; scrollbar-width: none; padding: 6px; border-radius: 20px; }
+    .menu .me { display: none; }
+    .menu button { white-space: nowrap; }
+  }
+  @media (max-width: 760px) {
+    .menu { margin: 0 calc(-1 * var(--gutter)); border-radius: 0; background: transparent; padding: 0 var(--gutter); }
+    .menu button { background: rgba(255,250,246,.6); border-radius: 999px; }
+    .menu button.active { background: var(--truffle); color: var(--milk); }
+    .menu button .count { display: none; }
+    .track-labels { font-size: 10px; }
+    .order .foot .btns { width: 100%; }
+    .order .foot .btns .btn { flex: 1; }
+    .notify { grid-template-columns: 1fr; }
+    .layout-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+</style>
+</head>
+<body data-page="account">
+
+<main class="wrap">
+  <div class="crumbs"><a href="home.html">Главная</a><span>Личный кабинет</span></div>
+  <h1 class="h1-page" style="margin-bottom: 22px">Здравствуйте, Анна</h1>
+
+  <div class="acc-layout">
+    <nav class="panel menu" data-group id="menu">
+      <div class="me"><b>Анна</b><small>+7 (912) 345-67-89</small></div>
+      <button class="active" data-opt="orders"><i class="ti ti-package"></i>Мои заказы<span class="count">5</span></button>
+      <button data-opt="favorites"><i class="ti ti-heart"></i>Избранное<span class="count">4</span></button>
+      <button data-opt="reviews"><i class="ti ti-star"></i>Отзывы<span class="count">1</span></button>
+      <button data-opt="profile"><i class="ti ti-settings"></i>Профиль</button>
+      <button onclick="location.href='login.html'"><i class="ti ti-logout"></i>Выйти</button>
+    </nav>
+
+    <div>
+      <!-- Заказы -->
+      <section class="tab active" id="tab-orders">
+        <article class="card order">
+          <div class="head"><div><b>Заказ № 1024</b><small>сегодня, 15:00–16:00 · 7-й микрорайон, 35</small></div><span class="status">Передан курьеру</span></div>
+          <div class="track"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <div class="track-labels"><span>Оплачен</span><span>В работе</span><span>Готов</span><span class="on">У курьера</span><span>Доставлен</span></div>
+          <div class="thumbs"><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 45% 62%"></div><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 50% 68%"></div></div>
+          <div class="foot"><b>15 550 ₽</b><div class="btns"><a class="btn btn-line btn-sm" href="tel:+70000000000"><i class="ti ti-phone"></i>Связаться</a></div></div>
+        </article>
+
+        <article class="card order">
+          <div class="head"><div><b>Заказ № 987</b><small>14 сентября · самовывоз, ул. Примерная, 1</small></div><span class="status ok">Доставлен</span></div>
+          <div class="thumbs"><div class="photo"><img src="../assets/IMG_6786.jpg" alt="" style="object-position: 50% 45%"></div></div>
+          <div class="foot"><span>Букет «Нежность» · <b>4 900 ₽</b></span><div class="btns"><button class="btn btn-line btn-sm" data-goto="reviews"><i class="ti ti-star"></i>Оценить</button><a class="btn btn-dark btn-sm" href="cart.html"><i class="ti ti-repeat"></i>Повторить заказ</a></div></div>
+        </article>
+
+        <article class="card order">
+          <div class="head"><div><b>Заказ № 902</b><small>8 августа · Подгорная часть</small></div><span class="status ok">Доставлен</span></div>
+          <div class="thumbs"><div class="photo"><img src="../assets/IMG_6785.jpg" alt="" style="object-position: 50% 58%"></div><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 50% 68%"></div></div>
+          <div class="foot"><span>2 товара · <b>29 400 ₽</b></span><div class="btns"><a class="btn btn-dark btn-sm" href="cart.html"><i class="ti ti-repeat"></i>Повторить заказ</a></div></div>
+        </article>
+      </section>
+
+      <!-- Избранное -->
+      <section class="tab" id="tab-favorites">
+        <div class="products layout-products" data-products="0,2,6,10"></div>
+      </section>
+
+      <!-- Отзывы: оставить отзыв к доставленному заказу -->
+      <section class="tab" id="tab-reviews">
+        <article class="card" style="display: grid; gap: 18px">
+          <div style="display: flex; gap: 14px; align-items: center">
+            <div class="photo" style="width: 64px; aspect-ratio: 4/5; border-radius: 10px"><img src="../assets/IMG_6786.jpg" alt=""></div>
+            <div><b>Букет «Нежность»</b><small class="muted" style="display: block; font-size: 13px">заказ № 987 · 14 сентября</small></div>
+          </div>
+          <div class="field"><label>Ваша оценка</label><div class="stars-input"><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i class="ti ti-star"></i></div></div>
+          <div class="field"><label>Отзыв</label><textarea class="input" placeholder="Расскажите, как вам букет и доставка"></textarea></div>
+          <div class="field"><label>Фото заказа — до 5 штук</label>
+            <div class="upload"><img src="../assets/IMG_6786.jpg" alt=""><label class="add"><span><i class="ti ti-camera-plus"></i><br>Добавить</span><input type="file" accept="image/*" multiple hidden></label></div>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+            <button class="btn btn-primary">Отправить отзыв</button>
+            <span class="hint">Опубликуем после проверки модератором</span>
+          </div>
+        </article>
+      </section>
+
+      <!-- Профиль -->
+      <section class="tab" id="tab-profile">
+        <div class="card" style="display: grid; gap: 18px">
+          <h2 class="h3">Личные данные</h2>
+          <div class="grid-2">
+            <div class="field"><label>Имя</label><input class="input" value="Анна"></div>
+            <div class="field"><label>Телефон</label><input class="input" value="+7 (912) 345-67-89" disabled></div>
+            <div class="field"><label>Email — для чеков</label><input class="input" placeholder="anna@mail.ru"></div>
+            <div class="field"><label>Дата рождения — пришлём подарок</label><input class="input" placeholder="дд.мм.гггг"></div>
+          </div>
+        </div>
+        <div class="card" style="display: grid; gap: 18px">
+          <h2 class="h3">Куда присылать уведомления о заказах</h2>
+          <div class="notify">
+            <label class="radio-card"><input type="radio" name="n" checked><div><b>Telegram</b><small>бесплатно и быстро</small></div></label>
+            <label class="radio-card"><input type="radio" name="n"><div><b>SMS</b><small>на номер телефона</small></div></label>
+            <label class="radio-card"><input type="radio" name="n"><div><b>Email</b><small>на почту выше</small></div></label>
+          </div>
+          <label class="check"><input type="checkbox" checked>Сообщать об акциях и новинках</label>
+          <div><button class="btn btn-primary">Сохранить</button></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="data.js"></script>
+<script src="layout.js"></script>
+<script>
+  const menu = document.getElementById('menu');
+  const show = (name) => {
+    document.querySelectorAll('.tab').forEach((t) => t.classList.toggle('active', t.id === 'tab-' + name));
+    menu.querySelectorAll('[data-opt]').forEach((b) => b.classList.toggle('active', b.dataset.opt === name));
+  };
+  menu.addEventListener('change-opt', (e) => show(e.detail));
+  document.querySelectorAll('[data-goto]').forEach((b) => b.addEventListener('click', () => show(b.dataset.goto)));
+  if (location.hash === '#favorites') {
+    show('favorites');
+    document.body.dataset.page = 'favorites';
+  }
+</script>
+</body>
+</html>

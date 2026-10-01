@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Оформление заказа | FRESKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .co { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 24px; align-items: start; }
+  .steps-form { display: grid; gap: 16px; }
+  .block { display: grid; gap: 18px; }
+  .block > h2 { display: flex; align-items: center; gap: 12px; font: 400 24px/1.2 var(--font-display); }
+  .block > h2 .n { width: 32px; height: 32px; border-radius: 50%; background: var(--cherry); color: var(--milk); font: 500 15px/32px var(--font-body); text-align: center; flex-shrink: 0; }
+  .block > h2 small { margin-left: auto; font: 400 13px var(--font-body); color: var(--muted); }
+
+  .addr-wrap { position: relative; }
+  .suggest { position: absolute; left: 0; right: 0; top: calc(100% + 6px); z-index: 5; background: #fff; border-radius: var(--r-sm); box-shadow: 0 12px 32px rgba(67,39,32,.14); overflow: hidden; display: none; }
+  .addr-wrap:focus-within .suggest { display: block; }
+  .suggest div { padding: 12px 18px; font-size: 15px; cursor: pointer; }
+  .suggest div:hover { background: var(--pink); }
+  .suggest small { display: block; color: var(--muted); font-size: 12px; }
+  .zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r-md); background: var(--pink); font-size: 14px; }
+  .zone .ti { color: var(--cherry); font-size: 24px; }
+  .zone b { color: var(--cherry); margin-left: auto; white-space: nowrap; font-size: 15px; }
+
+  .dates { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding-bottom: 2px; }
+  .date { flex: 0 0 auto; min-width: 82px; padding: 10px 12px; border-radius: var(--r-sm); background: #fff; border: 1px solid var(--line); text-align: center; line-height: 1.25; }
+  .date b { display: block; font-weight: 500; font-size: 15px; }
+  .date small { font-size: 12px; color: var(--muted); }
+  .date.active { background: var(--truffle); color: var(--milk); border-color: var(--truffle); }
+  .date.active small { color: var(--pink); }
+  .date.other { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--cherry); }
+  .slots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .slot { padding: 12px 6px; border-radius: var(--r-sm); background: #fff; border: 1px solid var(--line); font-size: 14px; font-weight: 500; line-height: 1.2; }
+  .slot small { display: block; font-weight: 400; font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .slot.active { border-color: var(--cherry); box-shadow: 0 0 0 1px var(--cherry); color: var(--cherry); }
+  .slot:disabled { opacity: .45; cursor: not-allowed; }
+  .lead-note { display: flex; gap: 10px; font-size: 14px; color: var(--muted); }
+  .lead-note .ti { font-size: 18px; color: var(--cherry); }
+
+  .contact-ways { display: flex; gap: 8px; flex-wrap: wrap; }
+  .contact-ways .chip { background: #fff; border-color: var(--line); display: inline-flex; gap: 6px; align-items: center; }
+  .contact-ways .chip .ti { font-size: 18px; }
+  .contact-ways .chip.active { background: var(--truffle); border-color: var(--truffle); }
+  .counter { text-align: right; }
+
+  .side { position: sticky; top: 100px; display: grid; gap: 14px; }
+  .mini { display: grid; gap: 12px; }
+  .mini .it { display: grid; grid-template-columns: 52px 1fr auto; gap: 12px; align-items: center; font-size: 14px; }
+  .mini .it .photo { aspect-ratio: 4/5; border-radius: 10px; }
+  .mini .it small { display: block; color: var(--muted); font-size: 12px; }
+  .when { display: grid; gap: 6px; padding: 14px 16px; border-radius: var(--r-md); background: var(--pink); font-size: 14px; }
+  .when div { display: flex; gap: 8px; align-items: center; }
+  .when .ti { font-size: 18px; color: var(--cherry); }
+  .legal-note { font-size: 12px; color: var(--muted); text-align: center; }
+  .legal-note a { text-decoration: underline; }
+  [hidden] { display: none !important; }
+
+  @media (max-width: 1080px) {
+    .co { grid-template-columns: 1fr; }
+    .side { position: static; }
+  }
+  @media (max-width: 760px) {
+    .block > h2 { font-size: 21px; }
+    .block > h2 small { display: none; }
+    .slots { grid-template-columns: repeat(3, 1fr); }
+    .side .btn-primary.btn-block { display: none; }
+    .dates { margin: 0 -20px; padding: 0 20px 2px; }
+    #delivery-fields .grid-3 { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    #delivery-fields .grid-3 .input { padding: 0 12px; }
+  }
+</style>
+</head>
+<body data-page="checkout" class="has-cta">
+
+<main class="wrap">
+  <div class="crumbs"><a href="home.html">Главная</a><span><a href="cart.html">Корзина</a></span><span>Оформление</span></div>
+  <h1 class="h1-page" style="margin-bottom: 22px">Оформление заказа</h1>
+
+  <div class="co">
+    <form class="steps-form" onsubmit="event.preventDefault(); location.href='success.html'">
+
+      <!-- 1. Получение -->
+      <section class="card block">
+        <h2><span class="n">1</span>Как получить</h2>
+        <div class="seg" data-group id="method">
+          <button type="button" class="active" data-opt="delivery"><i class="ti ti-truck-delivery"></i>Доставка</button>
+          <button type="button" data-opt="pickup"><i class="ti ti-building-store"></i>Самовывоз</button>
+        </div>
+
+        <div id="delivery-fields" class="block" style="gap: 14px">
+          <div class="field addr-wrap">
+            <label>Адрес доставки <b>*</b></label>
+            <input class="input" value="Тобольск, 7-й микрорайон, 35" autocomplete="off">
+            <div class="suggest">
+              <div>Тобольск, 7-й микрорайон, 35<small>Тюменская обл., Тобольск</small></div>
+              <div>Тобольск, 7-й микрорайон, 35А<small>Тюменская обл., Тобольск</small></div>
+              <div>Тобольск, 7-й микрорайон, 3<small>Тюменская обл., Тобольск</small></div>
+            </div>
+          </div>
+          <div class="zone"><i class="ti ti-map-pin-check"></i><div>Зона «Нагорная часть»<br><span class="muted">бесплатно — заказ от 5 000 ₽</span></div><b>0 ₽</b></div>
+          <div class="grid-3">
+            <div class="field"><label>Квартира / офис</label><input class="input" placeholder="12"></div>
+            <div class="field"><label>Подъезд</label><input class="input" placeholder="2"></div>
+            <div class="field"><label>Этаж</label><input class="input" placeholder="5"></div>
+          </div>
+        </div>
+
+        <div id="pickup-fields" class="block" style="gap: 10px" hidden>
+          <label class="radio-card"><input type="radio" name="shop" checked><div><b>ул. Примерная, 1</b><small>ежедневно 10:30–20:00</small></div><span class="end">0 ₽</span></label>
+          <label class="radio-card"><input type="radio" name="shop"><div><b>мкр. Примерный, 2</b><small>ежедневно 10:30–20:00</small></div><span class="end">0 ₽</span></label>
+        </div>
+      </section>
+
+      <!-- 2. Дата и время -->
+      <section class="card block">
+        <h2><span class="n">2</span>Когда <small>календарь на 30 дней</small></h2>
+        <div class="dates" data-group id="dates"></div>
+        <div class="slots" data-group id="slots"></div>
+        <div class="lead-note"><i class="ti ti-info-circle"></i>В корзине клубника — её собирают 1,5 часа, поэтому ближайший интервал сегодня с 15:00.</div>
+      </section>
+
+      <!-- 3. Ваши данные -->
+      <section class="card block">
+        <h2><span class="n">3</span>Ваши данные</h2>
+        <div class="grid-2">
+          <div class="field"><label>Имя <b>*</b></label><input class="input" placeholder="Анна"></div>
+          <div class="field"><label>Телефон <b>*</b></label><input class="input" type="tel" placeholder="+7 (___) ___-__-__"></div>
+        </div>
+        <div class="field">
+          <label>Как с вами связаться для подтверждения</label>
+          <div class="contact-ways" data-group>
+            <button type="button" class="chip active" data-opt="tg"><i class="ti ti-brand-telegram"></i>Telegram</button>
+            <button type="button" class="chip" data-opt="wa"><i class="ti ti-brand-whatsapp"></i>WhatsApp</button>
+            <button type="button" class="chip" data-opt="call"><i class="ti ti-phone"></i>Звонок</button>
+            <button type="button" class="chip" data-opt="sms"><i class="ti ti-message"></i>SMS</button>
+          </div>
+        </div>
+        <label class="check"><input type="checkbox" id="self">Я сам(а) получу заказ</label>
+      </section>
+
+      <!-- 4. Получатель -->
+      <section class="card block" id="recipient">
+        <h2><span class="n">4</span>Получатель</h2>
+        <div class="grid-2">
+          <div class="field"><label>Имя получателя <b>*</b></label><input class="input" placeholder="Мария"></div>
+          <div class="field"><label>Телефон получателя</label><input class="input" type="tel" placeholder="необязательно"></div>
+        </div>
+        <span class="hint" style="margin-top: -8px">Если укажете телефон, курьер позвонит получателю за 15 минут. Без телефона — позвонит вам.</span>
+        <label class="check"><input type="checkbox">Не говорить получателю, от кого подарок</label>
+      </section>
+
+      <!-- 5. Открытка и комментарий -->
+      <section class="card block">
+        <h2><span class="n">5</span>Открытка и пожелания</h2>
+        <div class="field">
+          <label>Текст открытки — бесплатно</label>
+          <textarea class="input" maxlength="250" placeholder="С днём рождения! Пусть каждый день будет таким же ярким">С днём рождения, мама! Люблю тебя</textarea>
+          <span class="hint counter">32 / 250</span>
+        </div>
+        <div class="field"><label>Комментарий к заказу</label><textarea class="input" rows="2" placeholder="Например: домофон не работает, позвоните за 10 минут"></textarea></div>
+      </section>
+
+      <!-- 6. Оплата -->
+      <section class="card block">
+        <h2><span class="n">6</span>Оплата</h2>
+        <div style="display: grid; gap: 10px">
+          <label class="radio-card"><input type="radio" name="pay" checked><div><b>СБП</b><small>оплата в приложении банка за пару секунд</small></div><i class="ti ti-qrcode end"></i></label>
+          <label class="radio-card"><input type="radio" name="pay"><div><b>Картой онлайн</b><small>Мир, Visa, Mastercard · чек придёт на почту или в SMS</small></div><i class="ti ti-credit-card end"></i></label>
+          <label class="radio-card"><input type="radio" name="pay"><div><b>После подтверждения</b><small>менеджер свяжется с вами, оплата переводом или при получении</small></div><i class="ti ti-message-check end"></i></label>
+        </div>
+      </section>
+    </form>
+
+    <!-- Итог -->
+    <aside class="side">
+      <div class="card" style="display: grid; gap: 18px">
+        <h3 class="h3">Ваш заказ</h3>
+        <div class="mini">
+          <div class="it"><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 45% 62%"></div><div>Пионы с клубникой<small>11 пионов · топпер</small></div><b>9 250 ₽</b></div>
+          <div class="it"><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 50% 68%"></div><div>Клубника в шоколаде<small>15 ягод × 2</small></div><b>7 000 ₽</b></div>
+        </div>
+        <div class="when">
+          <div><i class="ti ti-calendar"></i><span id="when-text">Сегодня, 15:00–16:00</span></div>
+          <div><i class="ti ti-map-pin"></i>7-й микрорайон, 35</div>
+        </div>
+        <div class="summary">
+          <div class="line"><span>Товары</span><span>16 250 ₽</span></div>
+          <div class="line"><span>Промокод FRESKA10</span><span class="discount">−700 ₽</span></div>
+          <div class="line"><span>Доставка</span><span>0 ₽</span></div>
+          <div class="line total"><span>Итого</span><span>15 550 ₽</span></div>
+        </div>
+        <a class="btn btn-primary btn-block" href="success.html">Оформить и оплатить</a>
+        <p class="legal-note">Нажимая кнопку, вы соглашаетесь с <a href="#">офертой</a> и <a href="#">обработкой персональных данных</a></p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<div class="sticky-cta">
+  <div class="sum">15 550 ₽<small id="when-mobile">сегодня, 15:00–16:00</small></div>
+  <a class="btn btn-primary" href="success.html">Оформить и оплатить</a>
+</div>
+
+<script src="layout.js"></script>
+<script>
+  // Доставка / самовывоз
+  document.getElementById('method').addEventListener('change-opt', (e) => {
+    document.getElementById('delivery-fields').hidden = e.detail !== 'delivery';
+    document.getElementById('pickup-fields').hidden = e.detail !== 'pickup';
+  });
+
+  // «Я сам получу» скрывает блок получателя
+  document.getElementById('self').addEventListener('change', (e) => {
+    document.getElementById('recipient').hidden = e.target.checked;
+  });
+
+  // Даты: 7 ближайших дней + «Другая дата» (в рабочей версии — календарь на 30 дней)
+  const days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+  const months = ['янв', 'фев', 'мар', 'апр', 'мая', 'июн', 'июл', 'авг', 'сен', 'окт', 'ноя', 'дек'];
+  const dates = document.getElementById('dates');
+  let html = '';
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(); d.setDate(d.getDate() + i);
+    const title = i === 0 ? 'Сегодня' : i === 1 ? 'Завтра' : d.getDate() + ' ' + months[d.getMonth()];
+    const sub = i < 2 ? d.getDate() + ' ' + months[d.getMonth()] : days[d.getDay()];
+    html += `<button type="button" class="date${i === 0 ? ' active' : ''}" data-opt="${i}"><b>${title}</b><small>${sub}</small></button>`;
+  }
+  html += '<button type="button" class="date other"><i class="ti ti-calendar"></i><small>Другая дата</small></button>';
+  dates.innerHTML = html;
+
+  // Интервалы по часу с 11:00 до 20:00. Сегодня ранние недоступны (время сборки), один занят (лимит заказов)
+  const slots = document.getElementById('slots');
+  function renderSlots(today) {
+    let s = '';
+    for (let h = 11; h < 20; h++) {
+      const label = `${h}:00–${h + 1}:00`;
+      const early = today && h < 15;
+      const full = today && h === 17;
+      const active = today ? h === 15 : h === 11;
+      const note = early ? '<small>не успеем собрать</small>' : full ? '<small>мест нет</small>' : '';
+      s += `<button type="button" class="slot${active ? ' active' : ''}" data-opt="${label}" ${early || full ? 'disabled' : ''}>${label}${note}</button>`;
+    }
+    slots.innerHTML = s;
+  }
+  renderSlots(true);
+  dates.addEventListener('change-opt', (e) => renderSlots(e.detail === '0'));
+
+  slots.addEventListener('change-opt', (e) => {
+    const day = dates.querySelector('.active b').textContent;
+    document.getElementById('when-text').textContent = `${day}, ${e.detail}`;
+    document.getElementById('when-mobile').textContent = `${day.toLowerCase()}, ${e.detail}`;
+  });
+</script>
+</body>
+</html>

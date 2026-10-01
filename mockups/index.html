@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FRESKA — макеты страниц</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .idx { max-width: 880px; margin: 0 auto; padding: 48px 16px; }
+  .list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 28px; }
+  .list a { background: var(--milk); border-radius: 20px; padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start; }
+  .list a:hover { box-shadow: 0 0 0 2px var(--cherry); }
+  .list .ti { color: var(--cherry); font-size: 26px; }
+  .list small { display: block; color: var(--muted); font-size: 13px; margin-top: 2px; }
+  @media (max-width: 640px) { .list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<main class="idx">
+  <div class="eyebrow">freska · макеты</div>
+  <h1 class="h1-page" style="margin-top: 14px">Страницы сайта</h1>
+  <p class="muted" style="margin-top: 10px">Тексты, цены и контакты условные. Все страницы адаптированы под телефон — сузьте окно или откройте с телефона.</p>
+  <div class="list">
+    <a href="home.html"><i class="ti ti-home"></i><div><b>Главная</b><small>первый экран, категории, хиты, отзывы, контакты</small></div></a>
+    <a href="catalog.html"><i class="ti ti-layout-grid"></i><div><b>Каталог</b><small>категории, фильтры, сортировка, SEO-текст</small></div></a>
+    <a href="product.html"><i class="ti ti-flower"></i><div><b>Карточка товара</b><small>галерея, варианты, дополнения, состав, «с этим покупают»</small></div></a>
+    <a href="cart.html"><i class="ti ti-shopping-bag"></i><div><b>Корзина</b><small>количество, дополнения, промокод, бесплатная доставка</small></div></a>
+    <a href="checkout.html"><i class="ti ti-forms"></i><div><b>Оформление заказа</b><small>доставка/самовывоз, дата и интервал, получатель, оплата</small></div></a>
+    <a href="success.html"><i class="ti ti-circle-check"></i><div><b>Заказ оформлен</b><small>номер, статус, детали</small></div></a>
+    <a href="delivery.html"><i class="ti ti-truck-delivery"></i><div><b>Доставка и оплата</b><small>зоны и цены, сроки, самовывоз, вопросы</small></div></a>
+    <a href="login.html"><i class="ti ti-login"></i><div><b>Вход</b><small>по коду из SMS или через Telegram</small></div></a>
+    <a href="account.html"><i class="ti ti-user"></i><div><b>Личный кабинет</b><small>заказы и повтор, избранное, отзыв с фото, уведомления</small></div></a>
+    <a href="courier.html"><i class="ti ti-motorbike"></i><div><b>Экран курьера</b><small>доставки на сегодня, маршрут, «Доставлено»</small></div></a>
+  </div>
+</main>
+</body>
+</html>

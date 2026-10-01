@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Вход | FRESKA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  .auth { max-width: 460px; margin: 40px auto 0; padding: 40px; display: grid; gap: 20px; }
+  .auth .h2-sm { text-align: center; }
+  .code { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+  .code input { height: 64px; text-align: center; font: 400 28px var(--font-display); }
+  .divider { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+  .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  [hidden] { display: none !important; }
+  @media (max-width: 760px) { .auth { margin-top: 16px; padding: 28px 20px; } }
+</style>
+</head>
+<body data-page="login">
+
+<main class="wrap">
+  <section class="panel auth" id="step-phone">
+    <h1 class="h2-sm">Вход в личный кабинет</h1>
+    <p class="muted" style="text-align: center; margin-top: -8px">Без паролей — пришлём код. Если вы уже заказывали, увидите все свои заказы.</p>
+    <div class="field"><label>Номер телефона</label><input class="input" type="tel" value="+7 (912) 345-67-89"></div>
+    <button class="btn btn-primary btn-block" onclick="document.getElementById('step-phone').hidden = true; document.getElementById('step-code').hidden = false">Получить код по SMS</button>
+    <div class="divider">или</div>
+    <button class="btn btn-line btn-block"><i class="ti ti-brand-telegram"></i>Войти через Telegram</button>
+  </section>
+
+  <section class="panel auth" id="step-code" hidden>
+    <h1 class="h2-sm">Введите код</h1>
+    <p class="muted" style="text-align: center; margin-top: -8px">Отправили на +7 (912) 345-67-89</p>
+    <div class="code"><input class="input" value="4"><input class="input" value="8"><input class="input" value="1"><input class="input"></div>
+    <a class="btn btn-primary btn-block" href="account.html">Войти</a>
+    <p class="hint" style="text-align: center">Отправить код повторно через 0:42</p>
+  </section>
+</main>
+
+<script src="layout.js"></script>
+</body>
+</html>

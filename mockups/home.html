@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FRESKA — цветы и клубника в шоколаде с доставкой в Тобольске</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* Первый экран */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 8px 0 24px; }
+  .hero .panel { padding: 56px 48px; display: flex; flex-direction: column; justify-content: space-between; min-height: 600px; }
+  .hero .h1 { margin: 22px 0 20px; }
+  .hero .lead { max-width: 440px; }
+  .hero .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 36px; }
+  .hero .facts { display: flex; gap: 28px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .hero .facts b { display: block; font: 400 26px/1.1 var(--font-display); color: var(--cherry); white-space: nowrap; }
+  .hero .facts span { font-size: 13px; color: var(--muted); }
+  .hero .photo { border-radius: var(--r-xl); min-height: 600px; }
+  .hero .photo .note { position: absolute; left: 20px; bottom: 20px; z-index: 1; background: rgba(255,250,246,.92); border-radius: var(--r-md); padding: 14px 18px; display: flex; align-items: center; gap: 12px; font-size: 14px; }
+  .hero .photo .note .ti { color: var(--cherry); font-size: 26px; }
+
+  /* Категории */
+  .cats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .cat { position: relative; border-radius: var(--r-lg); overflow: hidden; aspect-ratio: 16/10; display: flex; align-items: flex-end; padding: 22px; }
+  .cat .photo { position: absolute; inset: 0; }
+  .cat .photo::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(67,39,32,.78), rgba(67,39,32,.35) 40%, rgba(67,39,32,0) 70%); }
+  .cat:hover .photo img { transform: scale(1.04); }
+  .cat .label { position: relative; z-index: 1; color: var(--milk); display: flex; justify-content: space-between; align-items: flex-end; width: 100%; }
+  .cat .label b { font: 400 26px/1.1 var(--font-display); display: block; }
+  .cat .label span { font-size: 13px; opacity: .85; }
+  .cat .arrow { width: 44px; height: 44px; border-radius: 50%; background: var(--milk); color: var(--cherry); display: grid; place-items: center; }
+  .cat.plain { background: var(--milk); }
+  .cat.plain .label { color: var(--truffle); }
+  .cat.plain .label .ti-big { position: absolute; }
+  .cat.plain .icon { position: absolute; top: 22px; left: 22px; font-size: 44px; color: var(--blossom); }
+  .cat.plain .arrow { background: var(--cherry); color: var(--milk); }
+
+  /* Почему мы */
+  .why { padding: 48px; }
+  .why-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 36px 40px; margin-top: 36px; }
+  .why-item .ti { font-size: 30px; color: var(--cherry); width: 60px; height: 60px; border-radius: 50%; background: var(--pink); display: grid; place-items: center; margin-bottom: 16px; }
+  .why-item p { font-size: 15px; color: var(--muted); margin-top: 6px; }
+
+  /* Как заказать */
+  .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; counter-reset: step; }
+  .step { background: rgba(255,250,246,.55); border-radius: var(--r-lg); padding: 24px 20px; }
+  .step::before { counter-increment: step; content: counter(step, decimal-leading-zero); display: block; font: 400 34px/1 var(--font-display); color: var(--cherry); margin-bottom: 28px; }
+  .step p { font-size: 15px; }
+  .step.last { background: var(--cherry); color: var(--milk); }
+  .step.last::before { color: var(--blossom); }
+
+  /* Отзывы */
+  .reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .review { background: var(--milk); border-radius: var(--r-lg); padding: 10px; display: flex; flex-direction: column; }
+  .review .photo { aspect-ratio: 4/3; border-radius: var(--r-md); }
+  .review .body { padding: 16px 10px 8px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .review .who { display: flex; align-items: center; gap: 10px; }
+  .review .ava { width: 40px; height: 40px; border-radius: 50%; background: var(--pink); color: var(--cherry); display: grid; place-items: center; font-weight: 500; }
+  .review .who small { display: block; font-size: 12px; color: var(--muted); }
+  .review .stars { margin-left: auto; color: var(--cherry); display: flex; }
+  .review .stars .ti { font-size: 16px; }
+  .review .verified { font-size: 12px; color: var(--cherry); display: inline-flex; align-items: center; gap: 4px; margin-top: auto; }
+  .review .verified .ti { font-size: 15px; }
+
+  /* Контакты */
+  .contacts { display: grid; grid-template-columns: 1fr 1.25fr; gap: 16px; }
+  .contacts .panel { padding: 44px; display: flex; flex-direction: column; gap: 28px; }
+  .contacts .phone { font: 400 34px/1 var(--font-display); color: var(--cherry); }
+  .socials { display: flex; gap: 10px; flex-wrap: wrap; }
+  .socials a { display: inline-flex; align-items: center; gap: 8px; padding: 11px 16px; border-radius: 999px; background: var(--pink); font-size: 14px; font-weight: 500; }
+  .shops { display: grid; gap: 14px; }
+  .shop { display: flex; gap: 12px; }
+  .shop .ti { color: var(--cherry); margin-top: 2px; }
+  .shop small { display: block; color: var(--muted); font-size: 13px; }
+  .map { border-radius: var(--r-xl); background: #EDE3DA; position: relative; overflow: hidden; min-height: 460px;
+         background-image: linear-gradient(90deg, rgba(67,39,32,.06) 1px, transparent 1px), linear-gradient(rgba(67,39,32,.06) 1px, transparent 1px); background-size: 48px 48px; }
+  .map .pin { position: absolute; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; font-weight: 500; }
+  .map .pin i { width: 46px; height: 46px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--cherry); display: grid; place-items: center; }
+  .map .pin i::after { content: ''; width: 14px; height: 14px; border-radius: 50%; background: var(--milk); }
+  .map .pin span { background: var(--milk); padding: 6px 10px; border-radius: 10px; }
+  .map .hint { position: absolute; right: 16px; bottom: 16px; font-size: 12px; color: var(--muted); background: var(--milk); padding: 6px 10px; border-radius: 8px; }
+
+  @media (max-width: 1080px) {
+    .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .why-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .footer .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 10px; padding-top: 0; }
+    .hero .photo { min-height: 0; aspect-ratio: 1; order: -1; border-radius: 26px; }
+    .hero .photo .note { left: 12px; right: 12px; bottom: 12px; font-size: 13px; }
+    .hero .panel { min-height: 0; padding: 28px 22px; border-radius: 26px; }
+    .hero .h1 { margin: 16px 0 14px; }
+    .hero .lead { font-size: 16px; }
+    .hero .btns { margin-top: 24px; }
+    .hero .btns { flex-direction: column; }
+    .hero .facts { gap: 14px; margin-top: 28px; padding-top: 20px; justify-content: space-between; }
+    .hero .facts b { font-size: 18px; }
+    .hero .facts span { font-size: 12px; }
+    .cats { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); scrollbar-width: none; }
+    .cat { flex: 0 0 72%; scroll-snap-align: start; aspect-ratio: 4/5; padding: 18px; }
+    .cat .label b { font-size: 22px; }
+    .why { padding: 28px 22px; border-radius: 26px; }
+    .why-grid { gap: 24px 16px; margin-top: 24px; }
+    .why-item .ti { width: 48px; height: 48px; font-size: 24px; margin-bottom: 10px; }
+    .why-item p { font-size: 13px; }
+    .steps { grid-template-columns: 1fr; gap: 8px; }
+    .step { display: flex; align-items: center; gap: 16px; padding: 16px 18px; }
+    .step::before { margin: 0; font-size: 26px; min-width: 38px; }
+    .reviews { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 10px; margin: 0 calc(-1 * var(--gutter)); padding: 0 var(--gutter); scrollbar-width: none; }
+    .review { flex: 0 0 84%; scroll-snap-align: start; }
+    .contacts { grid-template-columns: 1fr; }
+    .contacts .panel { padding: 28px 22px; border-radius: 26px; }
+    .contacts .phone { font-size: 28px; }
+    .map { min-height: 300px; border-radius: 26px; }
+    .section-head .link-more span { display: none; }
+    .footer .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body data-page="home">
+
+<main>
+  <!-- Первый экран -->
+  <div class="wrap">
+    <section class="hero">
+      <div class="panel">
+        <div>
+          <div class="eyebrow">freska bouquet · тобольск</div>
+          <h1 class="h1">Подарки, которые хочется запомнить</h1>
+          <p class="lead">Цветы, клубника в шоколаде и десерты ручной работы. Соберём за 1,5 часа и привезём красиво.</p>
+          <div class="btns">
+            <a class="btn btn-primary" href="#catalog">Перейти в каталог <i class="ti ti-arrow-right"></i></a>
+            <a class="btn btn-soft" href="#popular">Заказать</a>
+          </div>
+        </div>
+        <div class="facts">
+          <div><b>1,5 ч</b><span>сборка и доставка</span></div>
+          <div><b>0 ₽</b><span>доставка от 5 000 ₽</span></div>
+          <div><b>10:30–20:00</b><span>ежедневно</span></div>
+        </div>
+      </div>
+      <div class="photo">
+        <img src="../assets/IMG_6786.jpg" alt="Розовый букет с гортензией и кустовыми розами" style="object-position: 50% 45%">
+        <div class="note"><i class="ti ti-truck-delivery"></i><div><b>Ближайшая доставка</b><br>сегодня с 15:00 до 16:00</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Категории -->
+  <section class="section" id="catalog">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">Каталог</h2>
+        <a class="link-more" href="#"><span>Все товары</span> <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="cats">
+        <a class="cat" href="catalog.html"><div class="photo"><img src="../assets/IMG_6785.jpg" alt="" style="object-position: 50% 55%"></div><div class="label"><div><b>Цветы</b><span>64 букета</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+        <a class="cat" href="catalog.html"><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 50% 62%"></div><div class="label"><div><b>Клубничные букеты</b><span>28 позиций</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+        <a class="cat" href="catalog.html"><div class="photo"><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 30% 55%"></div><div class="label"><div><b>Цветы + клубника</b><span>19 позиций</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+        <a class="cat" href="catalog.html"><div class="photo"><img src="../assets/IMG_6786.jpg" alt="" style="object-position: 50% 50%"></div><div class="label"><div><b>Клубничные наборы</b><span>34 набора</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+        <a class="cat plain" href="catalog.html"><i class="icon ti ti-cake"></i><div class="label"><div><b>Десерты</b><span>22 позиции</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+        <a class="cat plain" href="catalog.html"><i class="icon ti ti-gift"></i><div class="label"><div><b>Дополнения</b><span>открытки, топперы, шары</span></div><i class="arrow ti ti-arrow-up-right"></i></div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Популярное -->
+  <section class="section" id="popular" style="padding-top: 8px">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">Хиты продаж</h2>
+        <a class="link-more" href="#"><span>Смотреть все</span> <i class="ti ti-arrow-right"></i></a>
+      </div>
+      <div class="products">
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><span class="tag">Хит</span><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 45% 62%"></div>
+          <h3 class="name">Пионы с клубникой в шоколаде</h3><div class="meta">11 пионов · 9 ягод</div>
+          <div class="row"><span class="price">8 900 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6786.jpg" alt="" style="object-position: 50% 45%"></div>
+          <h3 class="name">Букет «Нежность»</h3><div class="meta">гортензия, диантус, роза</div>
+          <div class="row"><span class="price">4 900 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><span class="tag">Хит</span><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6785.jpg" alt="" style="object-position: 50% 58%"></div>
+          <h3 class="name">101 красная роза</h3><div class="meta">Эквадор, 60 см</div>
+          <div class="row"><span class="price">24 900 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><span class="tag tag-new">Новинка</span><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 50% 68%"></div>
+          <h3 class="name">Клубника в шоколаде</h3><div class="meta">от 9 до 25 ягод</div>
+          <div class="row"><span class="price">от 2 700 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>Выбрать</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6786.jpg" alt="" style="object-position: 30% 40%"></div>
+          <h3 class="name">Набор «Для неё»</h3><div class="meta">букет + 12 ягод</div>
+          <div class="row"><span class="price">6 300 ₽<span class="old">7 000 ₽</span></span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6785.jpg" alt="" style="object-position: 35% 50%"></div>
+          <h3 class="name">51 роза в ленте</h3><div class="meta">Эквадор, 50 см</div>
+          <div class="row"><span class="price">12 500 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><span class="tag tag-new">Новинка</span><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6784.jpg" alt="" style="object-position: 70% 55%"></div>
+          <h3 class="name">Пионы «Бордо»</h3><div class="meta">11 пионов</div>
+          <div class="row"><span class="price">6 900 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+        <article class="product" onclick="location.href='product.html'" style="cursor:pointer">
+          <div class="photo"><button class="fav" aria-label="В избранное"><i class="ti ti-heart"></i></button><img src="../assets/IMG_6786.jpg" alt="" style="object-position: 70% 55%"></div>
+          <h3 class="name">Букет «Зефир»</h3><div class="meta">гортензия, эустома</div>
+          <div class="row"><span class="price">5 400 ₽</span><button class="btn btn-dark btn-sm"><i class="ti ti-plus"></i><span>В корзину</span></button></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Почему выбирают нас -->
+  <section class="section" style="padding-top: 8px">
+    <div class="wrap">
+      <div class="panel why">
+        <div class="eyebrow">почему freska</div>
+        <h2 class="h2" style="margin-top: 14px">Подарок, за который не стыдно</h2>
+        <div class="why-grid">
+          <div class="why-item"><i class="ti ti-flower"></i><h3 class="h3">Свежие цветы</h3><p>Поставки несколько раз в неделю, храним в холодильных витринах.</p></div>
+          <div class="why-item"><i class="ti ti-heart"></i><h3 class="h3">Свежая клубника</h3><p>Отбираем крупную ягоду и покрываем шоколадом в день заказа.</p></div>
+          <div class="why-item"><i class="ti ti-hand-finger"></i><h3 class="h3">Ручная работа</h3><p>Каждый букет и набор флорист собирает под конкретный заказ.</p></div>
+          <div class="why-item"><i class="ti ti-gift"></i><h3 class="h3">Красивая упаковка</h3><p>Фирменная лента, открытка с вашим текстом — бесплатно.</p></div>
+          <div class="why-item"><i class="ti ti-truck-delivery"></i><h3 class="h3">Доставка от 1,5 часа</h3><p>Свои курьеры, бесплатно при заказе от 5 000 ₽.</p></div>
+          <div class="why-item"><i class="ti ti-sparkles"></i><h3 class="h3">Индивидуальный заказ</h3><p>Соберём по вашему фото, бюджету или любимым цветам.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Как сделать заказ -->
+  <section class="section" style="padding-top: 8px">
+    <div class="wrap">
+      <div class="section-head"><h2 class="h2">Как сделать заказ</h2></div>
+      <div class="steps">
+        <div class="step"><p>Выберите букет или набор в каталоге</p></div>
+        <div class="step"><p>Добавьте в корзину и допишите открытку</p></div>
+        <div class="step"><p>Укажите дату, время и адрес доставки</p></div>
+        <div class="step"><p>Оплатите картой или по СБП</p></div>
+        <div class="step last"><p>Мы красиво оформим и доставим подарок</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <section class="section" id="reviews" style="padding-top: 8px">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="h2">Отзывы</h2>
+        <a class="link-more" href="#"><span>Оставить отзыв</span> <i class="ti ti-camera-plus"></i></a>
+      </div>
+      <div class="reviews">
+        <article class="review">
+          <div class="photo"><img src="../assets/IMG_6784.jpg" alt="Фото заказа" style="object-position: 50% 60%"></div>
+          <div class="body">
+            <div class="who"><div class="ava">А</div><div><b>Анастасия</b><small>12 сентября</small></div><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div></div>
+            <p>Заказывала пионы с клубникой маме на юбилей. Привезли точно ко времени, букет даже красивее, чем на фото!</p>
+            <span class="verified"><i class="ti ti-circle-check"></i>Подтверждённая покупка</span>
+          </div>
+        </article>
+        <article class="review">
+          <div class="photo"><img src="../assets/IMG_6786.jpg" alt="Фото заказа" style="object-position: 50% 45%"></div>
+          <div class="body">
+            <div class="who"><div class="ava">Д</div><div><b>Дмитрий</b><small>3 сентября</small></div><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div></div>
+            <p>Оформил заказ с телефона за пару минут, девушка в восторге. Отдельное спасибо за открытку.</p>
+            <span class="verified"><i class="ti ti-circle-check"></i>Подтверждённая покупка</span>
+          </div>
+        </article>
+        <article class="review">
+          <div class="photo"><img src="../assets/IMG_6785.jpg" alt="Фото заказа" style="object-position: 50% 55%"></div>
+          <div class="body">
+            <div class="who"><div class="ava">Е</div><div><b>Екатерина</b><small>28 августа</small></div><div class="stars"><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i><i class="ti ti-star"></i></div></div>
+            <p>Розы стояли больше недели. Упаковка очень аккуратная, видно, что делают с любовью.</p>
+            <span class="verified"><i class="ti ti-circle-check"></i>Подтверждённая покупка</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="section" id="contacts" style="padding-top: 8px">
+    <div class="wrap">
+      <div class="contacts">
+        <div class="panel">
+          <div>
+            <div class="eyebrow">контакты</div>
+            <a class="phone" href="tel:+70000000000" style="display:block; margin-top: 14px">+7 (000) 000-00-00</a>
+            <p class="muted" style="margin-top: 8px">Ежедневно с 10:30 до 20:00</p>
+          </div>
+          <div class="socials">
+            <a href="#"><i class="ti ti-brand-telegram"></i>Telegram</a>
+            <a href="#"><i class="ti ti-brand-whatsapp"></i>WhatsApp</a>
+            <a href="#"><i class="ti ti-brand-vk"></i>ВКонтакте</a>
+            <a href="#"><i class="ti ti-brand-instagram"></i>Instagram</a>
+          </div>
+          <div class="shops">
+            <div class="shop"><i class="ti ti-map-pin"></i><div><b>Тобольск, ул. Примерная, 1</b><small>самовывоз · 10:30–20:00</small></div></div>
+            <div class="shop"><i class="ti ti-map-pin"></i><div><b>Тобольск, мкр. Примерный, 2</b><small>самовывоз · 10:30–20:00</small></div></div>
+          </div>
+        </div>
+        <div class="map">
+          <div class="pin" style="left: 32%; top: 34%"><i></i><span>Freska · ул. Примерная</span></div>
+          <div class="pin" style="left: 58%; top: 60%"><i></i><span>Freska · мкр. Примерный</span></div>
+          <div class="hint">здесь будет Яндекс Карта</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="layout.js"></script>
+</body>
+</html>
